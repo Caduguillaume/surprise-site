@@ -1,5 +1,5 @@
 const countdown = () => {
-  const targetDate = new Date("2025-06-15T00:00:00"); // Change la date ici
+  const targetDate = new Date("2025-02-02T00:00:00"); // Change la date ici
   const now = new Date();
   const diff = targetDate - now;
 

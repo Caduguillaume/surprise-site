@@ -1,8 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900');
 
+$font: 'Lato', sans-serif;
+$big: 'Montserrat', sans-serif;
+
+$red: #EF2F3C;
+$white: #F6F4F3;
+$blue: #276FBF;
+$dark: #183059;
+$yellow: #F0A202;
+
+$star: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  
+html {
+  display: grid;
+  min-height: 100%;
+}
+
 body {
   display: grid;
-  background: #183059; /* $dark */
+  background: $dark;
 }
 
 .container {
@@ -14,20 +30,20 @@ body {
 }
 
 h1 {
-  font-family: 'Lato', sans-serif;
+  font-family: $font;
   text-align: center;
   margin-top: 2em;
   font-size: 1em;
   text-transform: uppercase;
   letter-spacing: 5px;
-  color: #F6F4F3; /* $white */
+  color: $white;
 }
 
 #timer {
-  color: #F6F4F3; /* $white */
+  color: $white;
   text-align: center;
   text-transform: uppercase;
-  font-family: 'Lato', sans-serif;
+  font-family: $font;
   font-size: .7em;
   letter-spacing: 5px;
   margin-top: 25%;
@@ -41,80 +57,77 @@ h1 {
 }
 
 .days {
-  background: #EF2F3C; /* $red */
+  background: $red;
 }
 
 .hours {
-  background: #F6F4F3; /* $white */
-  color: #183059; /* $dark */
+  background: $white;
+  color: $dark;
 }
 
 .minutes {
-  background: #276FBF; /* $blue */
+  background: $blue;
 }
 
 .seconds {
-  background: #F0A202; /* $yellow */
+  background: $yellow;
+  .numbers {
+   
+  }
 }
 
 .numbers {
-  font-family: 'Montserrat', sans-serif;
-  color: #183059; /* $dark */
+  font-family: $big;
+  color: $dark;
   font-size: 4em;
 }
 
 .white {
   position: absolute;
-  background: #F6F4F3; /* $white */
+  background: $white;
   height: 85px;
   width: 75px;
   left: 30%;
   top: 2%;
-}
-
-.white .triangle {
-  border-bottom: 14px solid #F6F4F3; /* $white */
-}
-
-.white .string {
-  background: #F6F4F3; /* $white */
-  border: 1px solid #F6F4F3; /* $white */
+  .triangle {
+    border-bottom: 14px solid $white;
+  }
+  .string {
+    background: $white;
+    border: 1px solid $white;
+  }
 }
 
 .red {
   position: absolute;
-  background: #EF2F3C; /* $red */
+  background: $red;
   left: 18%;
   top: 9%;
   height: 65px;
   width: 70px;
-}
-
-.red .triangle {
-  border-bottom: 14px solid #EF2F3C; /* $red */
-}
-
-.red .string {
-  background: #EF2F3C; /* $red */
-  border: 1px solid #EF2F3C; /* $red */
+  .triangle {
+    border-bottom: 14px solid $red;
+  }
+  .string {
+    background: $red;
+    border: 1px solid $red;
+  }
 }
 
 .blue {
   position: absolute;
-  background: #276FBF; /* $blue */
+  background: $blue;
   height: 80px;
   width: 80px;
   left: 60%;
   top: 5%;
-}
-
-.blue .triangle {
-  border-bottom: 14px solid #276FBF; /* $blue */
-}
-
-.blue .string {
-  background: #276FBF; /* $blue */
-  border: 1px solid #276FBF; /* $blue */
+  .triangle {
+    border-bottom: 14px solid $blue;
+  }
+  .string {
+    background: $blue;
+    border: 1px solid $blue;
+  }
 }
 
 .balloon {
@@ -131,20 +144,19 @@ h1 {
   left: 22%;
   background: #000;
   border-radius: 50%;
-}
-
-.eye::after {
-  content: '';
-  left: 35px;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #000;
-  position: absolute;
+  &:after {
+    content: '';
+    left: 35px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #000;
+    position: absolute;
+  }
 }
 
 .mouth {
-  position: absolute;
+  position:absolute;
   top: 45%;
   left: 43%;
   width: 7px;
@@ -163,9 +175,9 @@ h1 {
   left: 40%;
   bottom: -10%;
   width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
+	height: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
 }
 
 .string {
@@ -180,8 +192,9 @@ h1 {
 .star {
   width: 20px;
   height: 20px;
-  background: #F6F4F3; /* $white */
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  background: $white;
+  -webkit-clip-path: $star;
+  clip-path: $star;
 }
 
 .star-red {
@@ -189,8 +202,9 @@ h1 {
   height: 30px;
   margin-left: 51px;
   margin-top: -5px;
-  background: #EF2F3C; /* $red */
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  background: $red;
+  -webkit-clip-path: $star;
+  clip-path: $star;
 }
 
 footer {
@@ -199,20 +213,17 @@ footer {
   right: 0;
   text-transform: uppercase;
   padding: 10px;
-  font-family: 'Lato', sans-serif;
+  font-family: $font;
   font-size: 0.7em;
-}
-
-footer p {
-  letter-spacing: 3px;
-  color: #EF2F3C; /* $red */
-}
-
-footer a {
-  color: #F6F4F3; /* $white */
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: #276FBF; /* $blue */
+  p {
+    letter-spacing: 3px;
+    color: $red;
+  }
+  a {
+    color: $white;
+    text-decoration: none;
+    &:hover {
+      color: $blue;
+    }
+  }
 }

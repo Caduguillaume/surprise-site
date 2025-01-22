@@ -1,27 +1,16 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900");
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900');
 
-$font: "Lato", sans-serif;
-$big: "Montserrat", sans-serif;
+$font: 'Lato', sans-serif;
+$big: 'Montserrat', sans-serif;
 
-$red: #ef2f3c;
-$white: #f6f4f3;
-$blue: #276fbf;
+$red: #EF2F3C;
+$white: #F6F4F3;
+$blue: #276FBF;
 $dark: #183059;
-$yellow: #f0a202;
+$yellow: #F0A202;
 
-$star: polygon(
-  50% 0%,
-  61% 35%,
-  98% 35%,
-  68% 57%,
-  79% 91%,
-  50% 70%,
-  21% 91%,
-  32% 57%,
-  2% 35%,
-  39% 35%
-);
-
+$star: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  
 html {
   display: grid;
   min-height: 100%;
@@ -55,15 +44,12 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   font-family: $font;
-  font-size: 0.7em;
+  font-size: .7em;
   letter-spacing: 5px;
   margin-top: 25%;
 }
 
-.days,
-.hours,
-.minutes,
-.seconds {
+.days, .hours, .minutes, .seconds {
   display: inline-block;
   padding: 20px;
   width: 100px;
@@ -86,6 +72,7 @@ h1 {
 .seconds {
   background: $yellow;
   .numbers {
+   
   }
 }
 
@@ -158,7 +145,7 @@ h1 {
   background: #000;
   border-radius: 50%;
   &:after {
-    content: "";
+    content: '';
     left: 35px;
     width: 7px;
     height: 7px;
@@ -169,7 +156,7 @@ h1 {
 }
 
 .mouth {
-  position: absolute;
+  position:absolute;
   top: 45%;
   left: 43%;
   width: 7px;
@@ -188,9 +175,9 @@ h1 {
   left: 40%;
   bottom: -10%;
   width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
+	height: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
 }
 
 .string {

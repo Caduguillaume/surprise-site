@@ -1,7 +1,5 @@
-const year = new Date().getFullYear();
-const fourthOfJuly = new Date(year, 01,02).getTime();
-const fourthOfJulyNextYear = new Date(year + 1, 6, 4).getTime();
-const month = new Date().getMonth();
+// Date de fin du compte à rebours : 2 février à 17h
+const endDate = new Date(new Date().getFullYear(), 1, 2, 17, 0, 0).getTime();
 
 // countdown
 let timer = setInterval(function() {
@@ -10,15 +8,7 @@ let timer = setInterval(function() {
   const today = new Date().getTime();
 
   // get the difference
-  let diff;
-  if(month > 6) {
-    diff = fourthOfJulyNextYear - today;
-  } else {
-    diff = fourthOfJuly - today;
-  }
-
-
-
+  const diff = endDate - today;
 
   // math
   let days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -26,7 +16,7 @@ let timer = setInterval(function() {
   let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-  // display
+  // display the countdown
   document.getElementById("timer").innerHTML =
     "<div class=\"days\"> \
   <div class=\"numbers\">" + days + "</div>days</div> \
@@ -37,5 +27,12 @@ let timer = setInterval(function() {
 <div class=\"seconds\"> \
   <div class=\"numbers\">" + seconds + "</div>seconds</div> \
 </div>";
+
+  // When the countdown finishes
+  if (diff <= 0) {
+    clearInterval(timer); // Stop the timer
+    document.getElementById("timer").style.display = "none"; // Hide the timer
+    document.getElementById("final-content").style.display = "block"; // Show the final content
+  }
 
 }, 1000);

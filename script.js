@@ -1,23 +1,41 @@
-const countdown = () => {
-  const targetDate = new Date("2025-02-02T00:00:00"); // Change la date ici
-  const now = new Date();
-  const diff = targetDate - now;
+const year = new Date().getFullYear();
+const fourthOfJuly = new Date(year, 01,02).getTime();
+const fourthOfJulyNextYear = new Date(year + 1, 6, 4).getTime();
+const month = new Date().getMonth();
 
-  if (diff <= 0) {
-    document.getElementById("countdown").style.display = "none";
-    document.getElementById("surprise").style.display = "block";
-    return;
+// countdown
+let timer = setInterval(function() {
+
+  // get today's date
+  const today = new Date().getTime();
+
+  // get the difference
+  let diff;
+  if(month > 6) {
+    diff = fourthOfJulyNextYear - today;
+  } else {
+    diff = fourthOfJuly - today;
   }
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-  document.getElementById("days").innerText = days;
-  document.getElementById("hours").innerText = hours;
-  document.getElementById("minutes").innerText = minutes;
-  document.getElementById("seconds").innerText = seconds;
-};
 
-setInterval(countdown, 1000);
+
+  // math
+  let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  // display
+  document.getElementById("timer").innerHTML =
+    "<div class=\"days\"> \
+  <div class=\"numbers\">" + days + "</div>days</div> \
+<div class=\"hours\"> \
+  <div class=\"numbers\">" + hours + "</div>hours</div> \
+<div class=\"minutes\"> \
+  <div class=\"numbers\">" + minutes + "</div>minutes</div> \
+<div class=\"seconds\"> \
+  <div class=\"numbers\">" + seconds + "</div>seconds</div> \
+</div>";
+
+}, 1000);

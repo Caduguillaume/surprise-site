@@ -1,27 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900");
-
-$font: "Lato", sans-serif;
-$big: "Montserrat", sans-serif;
-
-$red: #ef2f3c;
-$white: #f6f4f3;
-$blue: #276fbf;
-$dark: #183059;
-$yellow: #f0a202;
-
-$star: polygon(
-  50% 0%,
-  61% 35%,
-  98% 35%,
-  68% 57%,
-  79% 91%,
-  50% 70%,
-  21% 91%,
-  32% 57%,
-  2% 35%,
-  39% 35%
-);
-
 html {
   display: grid;
   min-height: 100%;
@@ -29,7 +6,7 @@ html {
 
 body {
   display: grid;
-  background: $dark;
+  background: #183059;
 }
 
 .container {
@@ -41,20 +18,20 @@ body {
 }
 
 h1 {
-  font-family: $font;
+  font-family: "Lato", sans-serif;
   text-align: center;
   margin-top: 2em;
   font-size: 1em;
   text-transform: uppercase;
   letter-spacing: 5px;
-  color: $white;
+  color: #f6f4f3;
 }
 
 #timer {
-  color: $white;
+  color: #f6f4f3;
   text-align: center;
   text-transform: uppercase;
-  font-family: $font;
+  font-family: "Lato", sans-serif;
   font-size: 0.7em;
   letter-spacing: 5px;
   margin-top: 25%;
@@ -71,81 +48,78 @@ h1 {
 }
 
 .days {
-  background: $red;
+  background: #ef2f3c;
 }
 
 .hours {
-  background: $white;
-  color: $dark;
+  background: #f6f4f3;
+  color: #183059;
 }
 
 .minutes {
-  background: $blue;
+  background: #276fbf;
 }
 
 .seconds {
-  background: $yellow;
-  .numbers {
-  }
+  background: #f0a202;
 }
-
 .numbers {
-  font-family: $big;
-  color: $dark;
+  font-family: "Montserrat", sans-serif;
+  color: #183059;
   font-size: 4em;
 }
 
 .white {
   position: absolute;
-  background: $white;
+  background: #f6f4f3;
   height: 85px;
   width: 75px;
   left: 30%;
   top: 2%;
-  .triangle {
-    border-bottom: 14px solid $white;
-  }
-  .string {
-    background: $white;
-    border: 1px solid $white;
-  }
+}
+.white .triangle {
+  border-bottom: 14px solid #f6f4f3;
+}
+.white .string {
+  background: #f6f4f3;
+  border: 1px solid #f6f4f3;
 }
 
 .red {
   position: absolute;
-  background: $red;
+  background: #ef2f3c;
   left: 18%;
   top: 9%;
   height: 65px;
   width: 70px;
-  .triangle {
-    border-bottom: 14px solid $red;
-  }
-  .string {
-    background: $red;
-    border: 1px solid $red;
-  }
+}
+.red .triangle {
+  border-bottom: 14px solid #ef2f3c;
+}
+.red .string {
+  background: #ef2f3c;
+  border: 1px solid #ef2f3c;
 }
 
 .blue {
   position: absolute;
-  background: $blue;
+  background: #276fbf;
   height: 80px;
   width: 80px;
   left: 60%;
   top: 5%;
-  .triangle {
-    border-bottom: 14px solid $blue;
-  }
-  .string {
-    background: $blue;
-    border: 1px solid $blue;
-  }
+}
+.blue .triangle {
+  border-bottom: 14px solid #276fbf;
+}
+.blue .string {
+  background: #276fbf;
+  border: 1px solid #276fbf;
 }
 
 .balloon {
   border: 1px solid #000;
-  border-radius: 50% 50% 50% 50%/ 40% 40% 60% 60%;
+  border-radius: 50% 50% 50% 50%/40% 40% 60% 60%;
   z-index: 2;
 }
 
@@ -157,15 +131,15 @@ h1 {
   left: 22%;
   background: #000;
   border-radius: 50%;
-  &:after {
-    content: "";
-    left: 35px;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #000;
-    position: absolute;
-  }
+}
+.eye:after {
+  content: "";
+  left: 35px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #000;
+  position: absolute;
 }
 
 .mouth {
@@ -205,9 +179,9 @@ h1 {
 .star {
   width: 20px;
   height: 20px;
-  background: $white;
-  -webkit-clip-path: $star;
-  clip-path: $star;
+  background: #f6f4f3;
+  -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 
 .star-red {
@@ -215,9 +189,9 @@ h1 {
   height: 30px;
   margin-left: 51px;
   margin-top: -5px;
-  background: $red;
-  -webkit-clip-path: $star;
-  clip-path: $star;
+  background: #ef2f3c;
+  -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 
 footer {
@@ -226,17 +200,17 @@ footer {
   right: 0;
   text-transform: uppercase;
   padding: 10px;
-  font-family: $font;
+  font-family: "Lato", sans-serif;
   font-size: 0.7em;
-  p {
-    letter-spacing: 3px;
-    color: $red;
-  }
-  a {
-    color: $white;
-    text-decoration: none;
-    &:hover {
-      color: $blue;
-    }
-  }
+}
+footer p {
+  letter-spacing: 3px;
+  color: #ef2f3c;
+}
+footer a {
+  color: #f6f4f3;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #276fbf;
 }

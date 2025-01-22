@@ -1,31 +1,29 @@
-// Simuler un compte à rebours de 5 secondes pour test
-const endDate = new Date(new Date().getTime() + 5000); // 5 secondes après l'heure actuelle
+// Définir la date de fin du compte à rebours
+var countdownDate = new Date("Feb 2, 2025 17:00:00").getTime();
 
-let timer = setInterval(function() {
-  const today = new Date().getTime();
-  const diff = endDate - today;
+// Mettre à jour le compte à rebours toutes les secondes
+var x = setInterval(function() {
 
-  let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    // Obtenir la date et l'heure actuelles
+    var now = new Date().getTime();
+    
+    // Calculer la différence de temps
+    var distance = countdownDate - now;
+    
+    // Calculer les jours, heures, minutes et secondes
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Afficher le compte à rebours dans l'élément HTML
+    document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
-  document.getElementById("timer").innerHTML =
-    "<div class=\"days\">" + days + " days</div> \
-    <div class=\"hours\">" + hours + " hours</div> \
-    <div class=\"minutes\">" + minutes + " minutes</div> \
-    <div class=\"seconds\">" + seconds + " seconds</div>";
-
-  if (diff <= 0) {
-    clearInterval(timer); // Stop the timer
-    document.getElementById("timer").style.display = "none"; // Masquer le timer
-    document.getElementById("final-content").style.display = "block"; // Afficher le contenu final
-  }
-
+    // Si le compte à rebours a expiré, afficher le contenu final
+    if (distance < 0) {
+        clearInterval(x); // Arrêter le compte à rebours
+        document.getElementById("balloons").style.display = "none"; // Masquer les ballons
+        document.getElementById("timer").style.display = "none"; // Masquer le timer
+        document.getElementById("final-content").style.display = "block"; // Afficher le contenu final
+    }
 }, 1000);
-
-// Optionnel : Afficher immédiatement après 1 seconde pour tester
-setTimeout(function() {
-  document.getElementById("timer").style.display = "none"; // Masquer le timer
-  document.getElementById("final-content").style.display = "block"; // Afficher le contenu final
-}, 1000); // Afficher après 1 seconde
